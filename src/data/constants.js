@@ -3,7 +3,6 @@ export const Bio = {
     roles: [
       "Software Developer",
       "Full Stack developer",
-      "Data Scientist",
       "Programmer",
     ],
     description:
@@ -54,12 +53,12 @@ export const Bio = {
         },
         {
             name: "JSP",
-            image: "https://www.flaticon.com/free-icon/jsp_510519",
+            image: "https://seeklogo.com/images/J/jsp-logo-BC4B0EE9A4-seeklogo.com.png",
           },
         {
           name: "Python",
           image:
-            "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+            "https://seeklogo.com/images/P/python-logo-A32636CAA3-seeklogo.com.png",
         },
         {
             name: "JavaScript",
@@ -93,42 +92,42 @@ export const Bio = {
         {
             name: "Python",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://seeklogo.com/images/P/python-logo-A32636CAA3-seeklogo.com.png",
           },
           {
             name: "C++",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://seeklogo.com/images/C/c-logo-1B1817C041-seeklogo.com.png",
           },
           {
             name: "Lisp",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://upload.wikimedia.org/wikipedia/commons/7/78/Lisp-logo.jpg",
           },
           {
             name: "Prolog",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://www.svgrepo.com/show/374005/prolog.svg",
           },
         {
           name: "MatPlotlib",
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBMw6_RdwKQ9bDFfnKDX1iwMl4bVJEvd9PP53XuIw&s",
+            "https://seeklogo.com/images/M/matplotlib-logo-AEB3DC9BB4-seeklogo.com.png",
         },
         {
             name: "Scikit",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://seeklogo.com/images/S/scikit-learn-logo-8766D07E2E-seeklogo.com.png",
           },
           {
             name: "Beautiful soap",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://cdn.hackersandslackers.com/2020/11/beautifulsoup.jpg",
           },
           {
             name: "Plotly",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+              "https://www.diglib.org/wp-content/uploads/sites/3/2015/04/Plotly-logo.png",
           },
       ],
     },
@@ -138,7 +137,7 @@ export const Bio = {
         {
           name: "Git",
           image:
-            "https://camo.githubusercontent.com/fbfcb9e3dc648adc93bef37c718db16c52f617ad055a26de6dc3c21865c3321d/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6769742d73636d2f6769742d73636d2d69636f6e2e737667",
+            "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
         },
         {
           name: "GitHub",
@@ -153,12 +152,12 @@ export const Bio = {
         {
             name: "AWS",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+              "https://seeklogo.com/images/A/amazon-web-services-aws-logo-6C2E3DCD3E-seeklogo.com.png",
           },
           {
             name: "Azure    ",
             image:
-              "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+              "https://seeklogo.com/images/M/microsoft-azure-logo-85055C44BE-seeklogo.com.png",
           },
         {
           name: "VS Code",
@@ -173,12 +172,12 @@ export const Bio = {
         {
           name: "Power BI",
           image:
-            "https://camo.githubusercontent.com/c205ecbe12500177d102169d97bc1c17c545155fdf5ec78c08d54ac53e5b38c1/68747470733a2f2f63646e2e776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f61646f62652d78642e737667",
+            "https://seeklogo.com/images/P/power-bi-icon-logo-E1B451ED39-seeklogo.com.png",
         },
         {
           name: "Kubernets",
           image:
-            "https://camo.githubusercontent.com/ed93c2b000a76ceaad1503e7eb9356591b885227e82a36a005b9d3498b303ba5/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6669676d612f6669676d612d69636f6e2e737667",
+            "https://seeklogo.com/images/K/kubernetes-logo-3A67038EAB-seeklogo.com.png",
         },
       ],
     },
@@ -418,37 +417,28 @@ export const Bio = {
   export const education = [
     {
       id: 0,
-      img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Kiit.jpeg?alt=media&token=3839d520-c59d-4341-ad8f-0980c98de4dd",
-      school: "Kalinga Institute of Industrial Technology, Bhubaneswar",
-      date: "Oct 2021 - Sep 2025",
-      grade: "8.71 CGPA",
-      desc: "I am currently pursuing a Bachelor's degree in Computer Science and Engineering at Kalinga Institute of Industrial Technology, Bhubaneswar. I have completed 4 semesters and have a CGPA of 8.71. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others. I am also a member of the Google Developers Student Club (GDSC) at KIIT, where I am learning and working on exciting projects with a team of talented developers.",
-      degree: "Bachelor of Technology - BTech, Computer Science and Engineering",
+      school: "Concordia University, Montreal, Canada",
+      img : "https://seeklogo.com/images/C/concordia-university-logo-3D0DA7D26E-seeklogo.com.png",
+      date: "Sep 2022 - Apr 2024",
+      grade: "3.2* GPA",
+      desc: "I am currently pursuing a Master's degree in Applied Computer Science at Concordia University. I have completed 3 semesters and have a GPA of 3.2. I have taken courses in Algotithm Design Techniques , Advanced Programming Practices , Problem and program Solving , Distributed system Design , Software maintenance , Advanced Database system , Artificial intelligence , Computer networks , Software design methodology, and many more coming. I am also a member of the Google Developers Student Club (GDSC) at Concordia University, where I am learning and working on exciting projects with a team of talented developers.",
+      degree: "Masters of Applied Computer Science - MTech,Applied Computer Science",
     },
     {
       id: 1,
-      img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/methodist.png?alt=media&token=018a1b18-e2dd-4f34-8855-cff1b6b69fd3",
-      school: "Methodist School, Dankuni",
-      date: "Apr 2019 - Apr 2025",
-      grade: "88.2%",
-      desc: "I completed my class 12 high school education at Methodist School, Dankuni, where I studied Science with Computer Science.",
-      degree: "ISC(XII), Science with Computer",
-    },
-    {
-      id: 2,
-      img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/methodist.png?alt=media&token=018a1b18-e2dd-4f34-8855-cff1b6b69fd3",
-      school: "Methodist School, Dankuni",
-      date: "Apr 2017 - Apr 2019",
-      grade: "92.3%",
-      desc: "I completed my class 10 education at Methodist School, Dankuni, where I studied Science with Computer Application.",
-      degree: "ICSC(X), Science with Computer",
+      img: "https://seeklogo.com/images/G/gujarat-technological-university-gtu-logo-E5A2609FD2-seeklogo.com.png",
+      school: "Gujarat Technological University, Gujarat, India",
+      date: "Jul 2018 - Jun 2022",
+      grade: "9.04 CGPA",
+      desc: "I completed my bachelors of Engineering with good knowledge in different feilds of computer science and made my base very strong to pursue the more knowledge.",
+      degree: "Bachelors of Computer Engineering",
     },
   ];
   
-  export const TimeLineData = [
-    { year: 2017, text: "Started my journey" },
-    { year: 2018, text: "Worked as a freelance developer" },
-    { year: 2019, text: "Founded JavaScript Mastery" },
-    { year: 2020, text: "Shared my projects with the world" },
-    { year: 2021, text: "Started my own platform" },
-  ];
+  // export const TimeLineData = [
+  //   { year: 2017, text: "Started my journey" },
+  //   { year: 2018, text: "Worked as a freelance developer" },
+  //   { year: 2019, text: "Founded JavaScript Mastery" },
+  //   { year: 2020, text: "Shared my projects with the world" },
+  //   { year: 2021, text: "Started my own platform" },
+  // ];
