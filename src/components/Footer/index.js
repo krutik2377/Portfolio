@@ -25,7 +25,7 @@ const FooterWrapper = styled.footer`
 const Logo = styled.h1`
   font-weight: 600;
   font-size: 20px;
-  color: ${({ theme }) => theme.primary};
+  color:#90EE90;
 `;
 
 const Nav = styled.nav`
@@ -51,7 +51,7 @@ color: ${({ theme }) => theme.text_primary};
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: #90EE90};
   }
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -70,7 +70,7 @@ const SocialMediaIcon = styled.a`
   color: ${({ theme }) => theme.text_primary};
   transition: color 0.2s ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: #90EE90;
   }
 `;
 

@@ -1,6 +1,6 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
-import _default from '../../themes/default';
+
 
 export const Nav = styled.div`
     background-color: ${({theme}) => theme.card_light};
@@ -13,7 +13,7 @@ export const Nav = styled.div`
     top: 0;
     z-index: 10;
     @media (max-width: 960px) {
-        trastion: 0.8s all ease;
+        trasition: 0.8s all ease;
     }
 `;
 export const NavbarContainer = styled.div`
@@ -64,7 +64,7 @@ export const NavLink = styled.a`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     :hover {
-      color: ${({ theme }) => theme.primary};
+      color: #90EE90;
     }
 
     &.active {
