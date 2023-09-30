@@ -20,7 +20,7 @@ export const Bio = {
     "I'm an enthusiastic and adaptable person, constantly excited about embracing fresh opportunities. My commitment to producing top-notch outcomes is fueled by my strong desire to learn. With a positive outlook and a mindset geared towards growth, I am prepared to make a significant impact and accomplish remarkable achievements.",
     github: "https://github.com/krutik2377",
     resume:
-      "https://drive.google.com/file/d/1sPSJ-VVq8AwK_s5Am-HwCELq6LSulHJB/view?usp=sharing",
+      "https://drive.google.com/file/d/1T66LzUcZbpefaZ9JdK25zlKyIymrz31Y/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/kg2377",
   };
   
