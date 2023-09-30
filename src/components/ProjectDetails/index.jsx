@@ -67,6 +67,7 @@ const Desc = styled.div`
 
 const Image = styled.img`
     width: 100%;
+    height: 400px; 
     object-fit: cover;
     border-radius: 12px;
     margin-top: 30px;
@@ -96,7 +97,7 @@ const Tags = styled.div`
 const Tag = styled.div`
     font-size: 14px;
     font-weight: 400;
-    color: ${({ theme }) => theme.primary};
+    color: #90EE90;
     margin: 4px;
     padding: 4px 8px;
     border-radius: 8px;
@@ -159,22 +160,23 @@ const Button = styled.a`
     text-align: center;
     font-size: 16px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_primary};
+    color: #90EE90;
     padding: 12px 16px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary};
+    background-color: #90EE90;
     ${({ dull, theme }) => dull && `
         background-color: ${theme.bgLight};
         color: ${theme.text_secondary};
         &:hover {
-            background-color: ${({ theme }) => theme.bg + 99};
+            background-color: #90EE90;
         }
     `}
     cursor: pointer;
     text-decoration: none;
     transition: all 0.5s ease;
     &:hover {
-        background-color: ${({ theme }) => theme.primary + 99};
+        color: black;
+        background-color: #90EE90;
     }
     @media only screen and (max-width: 600px) {
         font-size: 12px;
@@ -227,7 +229,6 @@ const index = ({ openModal, setOpenModal }) => {
                     )}
                     <ButtonGroup>
                         <Button dull href={project?.github} target='new'>View Code</Button>
-                        <Button href={project?.webapp} target='new'>View Live App</Button>
                     </ButtonGroup>
                 </Wrapper>
             </Container>

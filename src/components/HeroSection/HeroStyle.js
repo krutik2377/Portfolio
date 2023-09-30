@@ -26,13 +26,13 @@ export const HeroBg = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 80%;
   height: 100%;
   max-width: 1360px;
   overflow: hidden;
   padding: 0 30px;
-  top: 50%;
-  left: 50%;
+  top: 55%;
+  left: 9%;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 
@@ -56,6 +56,7 @@ export const HeroInnerContainer = styled.div`
 `;
 export const HeroLeftContainer = styled.div`
   width: 100%;
+  display: flex;
   order: 1;
   @media (max-width: 960px) {
     order: 2;
@@ -76,7 +77,6 @@ export const HeroLeftContainer = styled.div`
 
 export const HeroRightContainer = styled.div`
   width: 100%;
-  display: flex;
   order: 2;
   justify-content: end;
   gap: 12px;
@@ -99,7 +99,7 @@ export const Img = styled.img`
   max-width: 400px;
   max-height: 400px;
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 2px solid #90EE90;
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -146,7 +146,7 @@ export const TextLoop = styled.div`
 `;
 
 export const Span = styled.span`
-  color: ${({ theme }) => theme.primary};
+  color: #90EE90;
   cursor: pointer;
 `;
 
@@ -182,9 +182,9 @@ export const ResumeButton = styled.a`
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
     background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: linear-gradient(225deg, #98FB98 0%, #32CD32 100%);
+    background: -moz-linear-gradient(225deg, #98FB98 0%, #32CD32 100%);
+    background: -webkit-linear-gradient(225deg,#98FB98 0%, #32CD32 100%);
     box-shadow:  20px 20px 60px #1F2634,
     -20px -20px 60px #1F2634;
     &:hover {

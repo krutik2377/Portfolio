@@ -74,13 +74,13 @@ export const NavLink = styled.a`
 
 
 export const GitHubButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  border: 1.8px solid #90EE90;
   justify-content: center;
   display: flex;
   align-items: center;
   height: 70%;
   border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: #90EE90;
   cursor: pointer;
   padding: 0 20px;
   font-weight: 500;
@@ -88,8 +88,8 @@ export const GitHubButton = styled.a`
   font-size: 16px;
   transition: all 0.6s ease-in-out;
     :hover {
-      background: ${({ theme }) => theme.primary};
-      color: ${({ theme }) => theme.white};     
+      background: #C1E1C1;
+      color: black;     
     }
     @media screen and (max-width: 768px) { 
     font-size: 14px;
