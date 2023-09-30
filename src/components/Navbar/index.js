@@ -13,9 +13,8 @@ const Navbar = () => {
     <Nav>
       <NavbarContainer>
         <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-            <img src="https://as2.ftcdn.net/v2/jpg/03/47/10/95/1000_F_347109557_wmMNL0MzGiKfLieADjEI91R3doeLv4Hi.jpg" height="60" width="55" display='flex' cursor="pointer"></img>
+          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' , fontFamily:'party LET plain'}}>
+            <DiCssdeck size="3rem" /> <Span>KG</Span>
           </a>
         </NavLogo>
         <MobileIcon>
