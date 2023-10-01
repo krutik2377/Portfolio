@@ -250,6 +250,26 @@ export const Bio = {
       category: "web app",
       github: "https://github.com/krutik2377/DSD_Project_CORBA",
       // webapp: "https://trackify.duckdns.org",
+      member: [
+        {
+          name: "Naren Zadafiya",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/naren-zadafiya-23768b210/?originalSubdomain=in",
+          github: "https://github.com/zadfiya",
+        },
+        {
+          name: "Shivam Patel",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/shivampatel0304/",
+          github: "https://github.com/shivampatel304",
+        },
+        {
+          name: "Nayan Sorathiya",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/nayankumar-sorathiya-367916143/?originalSubdomain=in",
+          github: "https://github.com/nayansorarhiya",
+        },
+      ],
     },
     {
       id: 0,
@@ -263,20 +283,6 @@ export const Bio = {
       category: "web app",
       github: "https://github.com/krutik2377/An-Ecommerce-Website",
       // webapp: "https://podstream.netlify.app/",
-      member: [
-        {
-          name: "Rishav Chanda",
-          img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-          linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-          github: "https://github.com/rishavchanda/",
-        },
-        {
-          name: "Upasana Chaudhuri",
-          img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-          linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-          github: "https://github.com/upasana0710",
-        },
-      ],
     },
     {
       id: 1,
@@ -312,16 +318,10 @@ export const Bio = {
       // webapp: "https://brain-tumor.netlify.app/",
       member: [
         {
-          name: "Rishav Chanda",
-          img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-          linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-          github: "https://github.com/rishavchanda/",
-        },
-        {
-          name: "Upasana Chaudhuri",
-          img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-          linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-          github: "https://github.com/upasana0710",
+          name: "Shivam Patel",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/shivampatel0304/",
+          github: "https://github.com/shivampatel304",
         },
       ],
     },
