@@ -147,7 +147,7 @@ export const Bio = {
         {
           name: "Git",
           image:
-            "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "https://seeklogo.com/images/G/git-bash-logo-B6475E8359-seeklogo.com.png",
         },
         {
           name: "GitHub",
@@ -185,7 +185,7 @@ export const Bio = {
             "https://seeklogo.com/images/P/power-bi-icon-logo-E1B451ED39-seeklogo.com.png",
         },
         {
-          name: "Kubernets",
+          name: "Kubernetes",
           image:
             "https://seeklogo.com/images/K/kubernetes-logo-3A67038EAB-seeklogo.com.png",
         },
