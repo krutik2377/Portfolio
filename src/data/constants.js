@@ -7,6 +7,9 @@ import lcsFinder from "./LCSfinder.png"
 import guessGame from "./GuessGame.png"
 import aiGame from "./SentimentSong.png"
 import toDoList from "./ToDoList.png"
+import indexing from "./Indexingforspatialdata.png"
+import image from "./imageanaylysis.png"
+import bank from "./BankConc.png"
 
 export const Bio = {
     name: "Krutik Gevariya",
@@ -390,19 +393,67 @@ export const Bio = {
       github: "https://github.com/krutik2377/To-Do-List",
       // webapp: "https://breaking-bad-webapp.netlify.app",
     },
-    // {
-    //   id: 7,
-    //   title: "Quiz App",
-    //   date: "Dec 2020 - Jan 2021",
-    //   description:
-    //     "A android quiz app made with Java and Firebase. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the quiz categories and can create a new quiz. It has a leaderboard where users can see the top 10 scorers. It has a search bar where users can search for a particular quiz.",
-    //   image:
-    //     "https://github-production-user-asset-6210df.s3.amazonaws.com/64485885/239726262-c1b061d1-d9d0-42ef-9f1c-0412d14bc4f6.gif",
-    //   tags: ["Java", "Android Studio", "Firebase", "Google Auth"],
-    //   category: "android app",
-    //   github: "https://github.com/rishavchanda/Quiz-Earn",
-    //   webapp: "https://github.com/rishavchanda/Quiz-Earn",
-    // },
+    {
+      id: 7,
+      title: "Indexing Framework For 3D Spatial Data",
+      date: "Jan 2023 - April 2023",
+      description:
+        "This project involves developing an effective index structure to speed up finding answers to two types of queries on a dataset of 10 million points in the 3D space stored in relation Points(X,Y,Z), where the attributes are real numbers in the range [0, 1000]. The first type of query involves finding all the points in the input dataset that are inside or lie on the borders of the cube defined by query parameters x1, x2, y1, y2, z1, and z2. The second type of query involves finding the nearest neighbor point(s) of a given point A(x1, y1, z1) in the dataset.The index structure can be either standard or ad hoc, tree-based or hash-based, and should be used for both types of queries. The project report should present the index/hash structure or a mixed (ad hoc) solution and explain its features. Additionally, the report should include the size of the index created and the query processing time to answer the queries. The maximum number of points for answering each query type is three, and the maximum points for the report are two. The presentation style and Q/A during the demo will get one point at most.The goal of this project is to build a fast and scalable indexing structure for 3D point clouds, using advanced indexing techniques to accelerate spatial query processing.",
+      image:
+        indexing,
+      tags: ["Java", "Database Design" , "Problem solving"],
+      category: "web app",
+      github: "https://github.com/krutik2377/Indexing-Framework-for-3D-Spatial-Data.git",
+      // webapp: "https://github.com/rishavchanda/Quiz-Earn",
+      member: [
+        {
+          name: "Shivam Patel",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/shivampatel0304/",
+          github: "https://github.com/shivampatel304",
+        },
+      ],
+    },
+    {
+      id: 8,
+      title: "BankConc- A banking Application",
+      date: "May 2023 - Aug 2023",
+      description:
+        "BankConc is a state-of-the-art banking application built on Erlang, offering users a seamless experience for managing their finances. With its intuitive interface and robust features, BankConc enables users to efficiently handle transactions, transfer funds securely, and access various banking services on the fly. Whether it's checking balances, paying bills, or automating transactions, BankConc provides a secure and user-friendly platform for all banking needs, backed by advanced encryption technology to safeguard sensitive financial information.",
+      image:
+        bank,
+      tags: ["Erlang", "Concurrency", "Parallel Programming"],
+      category: "web app",
+      github: "https://github.com/krutik2377/BankConc--A-Banking-Application.git",
+      // webapp: "https://github.com/rishavchanda/Quiz-Earn",
+    },
+    {
+      id: 11,
+      title: "Advancing Fairness in Facial Image Analysis",
+      date: "Sep 2023 - Dec 2023",
+      description:
+        "Advancing Fairness in Facial Image Analysis is a pioneering project that harnesses the power of machine learning, convolutional neural networks (CNNs), and rigorous evaluation techniques to develop a fair and unbiased AI system for facial analysis. By implementing a PyTorch CNN for image analysis and employing k-fold validation, the project ensures robust model evaluation. Moreover, the project effectively addresses biases related to age, race, and gender, delivering a high-accuracy AI system while setting ethical standards in AI development. Through the acquisition of skills in machine learning, CNNs, k-fold validation, bias detection, and ethical AI development, this project exemplifies a commitment to advancing fairness and equity in AI technology.",
+      image:
+        image,
+      tags: ["Machine Learning", "CNN", "Bias Detection and Mitigation" , "Ethical AI developement"],
+      category: "Artificial Intelligence",
+      github: "https://github.com/krutik2377/BankConc--A-Banking-Application.git",
+      // webapp: "https://github.com/rishavchanda/Quiz-Earn",
+      member: [
+        {
+          name: "Shivam Patel",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/shivampatel0304/",
+          github: "https://github.com/shivampatel304",
+        },
+        {
+          name: "Nayan Sorathiya",
+          img: "https://thenounproject.com/api/private/icons/1995118/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0",
+          linkedin: "https://www.linkedin.com/in/nayankumar-sorathiya-367916143/?originalSubdomain=in",
+          github: "https://github.com/nayansorarhiya",
+        },
+      ],
+    },
   ];
 
   export const education = [
