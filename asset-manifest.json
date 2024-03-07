@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.4d6f4b37.css",
+    "main.js": "/Portfolio/static/js/main.604a3384.js",
+    "static/media/LCSfinder.png": "/Portfolio/static/media/LCSfinder.2cb780ed1485281128bd.png",
+    "static/media/GuessGame.png": "/Portfolio/static/media/GuessGame.774f548bf264cd1ec0ee.png",
+    "static/media/BlogApp.png": "/Portfolio/static/media/BlogApp.3f34277fc3f792036d39.png",
+    "static/media/ECweb.png": "/Portfolio/static/media/ECweb.480f593e5b142f012e1b.png",
+    "static/media/MTBS.png": "/Portfolio/static/media/MTBS.c14d3e234e67f867efd0.png",
+    "static/media/CovidTracker.png": "/Portfolio/static/media/CovidTracker.b0656b4320a402ef0ddf.png",
+    "static/media/SentimentSong.png": "/Portfolio/static/media/SentimentSong.e0d924adfe46d757b82f.png",
+    "static/media/PigGame.png": "/Portfolio/static/media/PigGame.d6da8aefbe5e3c3d02f6.png",
+    "static/media/ToDoList.png": "/Portfolio/static/media/ToDoList.058f69ebf9b0a23a2daf.png",
+    "static/media/imageanaylysis.png": "/Portfolio/static/media/imageanaylysis.326733dbe6bd34cb32a0.png",
+    "static/media/Indexingforspatialdata.png": "/Portfolio/static/media/Indexingforspatialdata.e23f5b358908e9ca5a1d.png",
+    "static/media/BankConc.png": "/Portfolio/static/media/BankConc.66a1f42157eada478c3c.png",
+    "static/media/HeroImage.jpg": "/Portfolio/static/media/HeroImage.5e85bc3c412ada9dd821.jpg",
+    "index.html": "/Portfolio/index.html",
+    "main.4d6f4b37.css.map": "/Portfolio/static/css/main.4d6f4b37.css.map",
+    "main.604a3384.js.map": "/Portfolio/static/js/main.604a3384.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4d6f4b37.css",
+    "static/js/main.604a3384.js"
+  ]
+}
