@@ -475,7 +475,7 @@ export const Bio = {
       desc: "I completed my bachelors of Engineering with good knowledge in different feilds of computer science and made my base very strong to pursue the more knowledge.",
       degree: "Bachelors of Computer Engineering",
     },
-  ];
+  ]; 
   
   // export const TimeLineData = [
   //   { year: 2017, text: "Started my journey" },
