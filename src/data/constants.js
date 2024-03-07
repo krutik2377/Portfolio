@@ -23,7 +23,7 @@ export const Bio = {
     "I'm an enthusiastic and adaptable person, constantly excited about embracing fresh opportunities. My commitment to producing top-notch outcomes is fueled by my strong desire to learn. With a positive outlook and a mindset geared towards growth, I am prepared to make a significant impact and accomplish remarkable achievements.",
     github: "https://github.com/krutik2377",
     resume:
-      "https://drive.google.com/file/d/1T66LzUcZbpefaZ9JdK25zlKyIymrz31Y/view?usp=sharing",
+      "https://drive.google.com/file/d/1l6Dt-qlny4X6KCHGQotAf7zPLzaE12Dd/view?usp=drive_link",
     linkedin: "https://www.linkedin.com/in/kg2377",
   };
   
@@ -461,7 +461,7 @@ export const Bio = {
       id: 0,
       school: "Concordia University, Montreal, Canada",
       img : "https://logowik.com/content/uploads/images/concordia-university6864.jpg",
-      date: "Sep 2022 - Apr 2024",
+      date: "Sep 2022 - May 2024",
       grade: "3.2* GPA",
       desc: "I am currently pursuing a Master's degree in Applied Computer Science at Concordia University. I have completed 3 semesters and have a GPA of 3.2. I have taken courses in Algotithm Design Techniques , Advanced Programming Practices , Problem and program Solving , Distributed system Design , Software maintenance , Advanced Database system , Artificial intelligence , Computer networks , Software design methodology, and many more coming. I am also a member of the Google Developers Student Club (GDSC) at Concordia University, where I am learning and working on exciting projects with a team of talented developers.",
       degree: "Masters of Applied Computer Science - MTech,Applied Computer Science",
