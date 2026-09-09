@@ -1,239 +1,226 @@
-import { CloseRounded, GitHub, LinkedIn } from '@mui/icons-material';
+import { CloseRounded, GitHub, LinkedIn, MenuBook } from '@mui/icons-material';
 import { Modal } from '@mui/material';
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Container = styled.div`
-width: 100%;
-height: 100%;
-position: absolute;
-top: 0;
-left: 0;
-background-color: #000000a7;
-display: flex;
-align-items: top;
-justify-content: center;
-overflow-y: scroll;
-transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 40px 16px;
+  z-index: 2000;
 `;
 
 const Wrapper = styled.div`
-max-width: 800px;
-width: 100%;
-border-radius: 16px;
-margin: 50px 12px;
-height: min-content;
-background-color: ${({ theme }) => theme.card};
-color: ${({ theme }) => theme.text_primary};
-padding: 20px;
-display: flex;
-flex-direction: column;
-position: relative;
+  max-width: 820px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text_primary};
+  padding: 28px;
+  position: relative;
+  border: 1px solid rgba(144, 238, 144, 0.2);
 `;
 
-const Title = styled.div`
-  font-size: 28px;
-  font-weight: 600;
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  border-radius: 10px;
   color: ${({ theme }) => theme.text_primary};
-  margin: 8px 6px 0px 6px;
-  @media only screen and (max-width: 600px) {
-      font-size: 24px;
-      margin: 6px 6px 0px 6px;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(144, 238, 144, 0.15);
   }
 `;
 
-const Date = styled.div`
-    font-size: 16px;
-    margin: 2px 6px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
-
-
-
-const Desc = styled.div`
-    font-size: 16px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary};
-    margin: 8px 6px;
-    @media only screen and (max-width: 600px) {
-        font-size: 14px;
-        margin: 6px 6px;
-    }
-`;
-
 const Image = styled.img`
-    width: 100%;
-    height: 400px; 
-    object-fit: cover;
-    border-radius: 12px;
-    margin-top: 30px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 20px;
 `;
 
-const Label = styled.div`
-    font-size: 20px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_primary};
-    margin: 8px 6px;
-    @media only screen and (max-width: 600px) {
-        font-size: 16px;
-        margin: 8px 6px;
-    }
+const Title = styled.h2`
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px;
+`;
+
+const Date = styled.div`
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin-bottom: 16px;
 `;
 
 const Tags = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin: 8px 0px;
-    @media only screen and (max-width: 600px) {
-        margin: 4px 0px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 `;
 
-const Tag = styled.div`
-    font-size: 14px;
-    font-weight: 400;
-    color: #90EE90;
-    margin: 4px;
-    padding: 4px 8px;
-    border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary + 20};
-    @media only screen and (max-width: 600px) {
-        font-size: 12px;
-    }
+const Tag = styled.span`
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: ${({ theme }) => theme.accent};
+  background: rgba(144, 238, 144, 0.1);
+  border: 1px solid rgba(144, 238, 144, 0.2);
+`;
+
+const Desc = styled.p`
+  font-size: 15px;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.text_secondary};
+  margin: 0 0 24px;
+`;
+
+const Label = styled.h4`
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
 `;
 
 const Members = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 12px 6px;
-    @media only screen and (max-width: 600px) {
-        margin: 4px 6px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
 `;
 
 const Member = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 `;
 
-const MemberImage = styled.img`
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 4px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-    @media only screen and (max-width: 600px) {
-        width: 32px;
-        height: 32px;
-    }
+const MemberName = styled.span`
+  font-size: 14px;
+  flex: 1;
 `;
-
-const MemberName = styled.div`
-    font-size: 16px;
-    font-weight: 500;
-    width: 200px;
-    color: ${({ theme }) => theme.text_primary};
-    @media only screen and (max-width: 600px) {
-        font-size: 14px;
-    }
-`;
-
 
 const ButtonGroup = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    margin: 12px 0px;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 `;
 
 const Button = styled.a`
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: #90EE90;
-    padding: 12px 16px;
-    border-radius: 8px;
-    background-color: #90EE90;
-    ${({ dull, theme }) => dull && `
-        background-color: ${theme.bgLight};
-        color: ${theme.text_secondary};
-        &:hover {
-            background-color: #90EE90;
-        }
-    `}
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.5s ease;
-    &:hover {
-        color: black;
-        background-color: #90EE90;
-    }
-    @media only screen and (max-width: 600px) {
-        font-size: 12px;
-    }
+  flex: 1;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: ${({ theme }) => theme.accent};
+  color: #111;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 `;
 
+const CaseStudyButton = styled(Link)`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1.5px solid ${({ theme }) => theme.accent};
+  color: ${({ theme }) => theme.accent};
+  background: transparent;
 
-const index = ({ openModal, setOpenModal }) => {
-    const project = openModal?.project;
-    return (
-        <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
-            <Container>
-                <Wrapper>
-                    <CloseRounded
-                        style={{
-                            position: "absolute",
-                            top: "10px",
-                            right: "20px",
-                            cursor: "pointer",
-                        }}
-                        onClick={() => setOpenModal({ state: false, project: null })}
-                    />
-                    <Image src={project?.image} />
-                    <Title>{project?.title}</Title>
-                    <Date>{project.date}</Date>
-                    <Tags>
-                        {project?.tags.map((tag) => (
-                            <Tag>{tag}</Tag>
-                        ))}
-                    </Tags>
-                    <Desc>{project?.description}</Desc>
-                    {project.member && (
-                        <>
-                            <Label>Members</Label>
-                            <Members>
-                                {project?.member.map((member) => (
-                                    <Member>
-                                        <MemberName>{member.name}</MemberName>
-                                        <a href={member.github} target="new" style={{textDecoration: 'none', color: 'inherit'}}>
-                                            <GitHub />
-                                        </a>
-                                        <a href={member.linkedin} target="new" style={{textDecoration: 'none', color: 'inherit'}}>
-                                            <LinkedIn />
-                                        </a>
-                                    </Member>
-                                ))}
-                            </Members>
-                        </>
-                    )}
-                    <ButtonGroup>
-                        <Button dull href={project?.github} target='new'>View Code</Button>
-                    </ButtonGroup>
-                </Wrapper>
-            </Container>
+  &:hover {
+    background: rgba(144, 238, 144, 0.1);
+    transform: translateY(-2px);
+  }
+`;
 
-        </Modal>
-    )
-}
+const ProjectDetails = ({ openModal, setOpenModal }) => {
+  const project = openModal?.project;
+  if (!project) return null;
 
-export default index
+  return (
+    <Modal open onClose={() => setOpenModal({ state: false, project: null })}>
+      <Container onClick={() => setOpenModal({ state: false, project: null })}>
+        <Wrapper onClick={(e) => e.stopPropagation()}>
+          <CloseBtn
+            type="button"
+            aria-label="Close"
+            onClick={() => setOpenModal({ state: false, project: null })}
+          >
+            <CloseRounded />
+          </CloseBtn>
+          <Image src={project.image} alt={project.title} />
+          <Title>{project.title}</Title>
+          <Date>{project.date}</Date>
+          <Tags>
+            {project.tags?.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </Tags>
+          <Desc>{project.description}</Desc>
+          {project.member && (
+            <>
+              <Label>Team Members</Label>
+              <Members>
+                {project.member.map((member) => (
+                  <Member key={member.name}>
+                    <MemberName>{member.name}</MemberName>
+                    <a href={member.github} target="_blank" rel="noreferrer" aria-label={`${member.name} GitHub`}>
+                      <GitHub fontSize="small" />
+                    </a>
+                    <a href={member.linkedin} target="_blank" rel="noreferrer" aria-label={`${member.name} LinkedIn`}>
+                      <LinkedIn fontSize="small" />
+                    </a>
+                  </Member>
+                ))}
+              </Members>
+            </>
+          )}
+          <ButtonGroup>
+            {project.caseStudySlug && (
+              <CaseStudyButton
+                to={`/case-study/${project.caseStudySlug}`}
+                onClick={() => setOpenModal({ state: false, project: null })}
+              >
+                <MenuBook fontSize="small" /> Case Study
+              </CaseStudyButton>
+            )}
+            {project.github && (
+              <Button href={project.github} target="_blank" rel="noreferrer">
+                View Source Code
+              </Button>
+            )}
+          </ButtonGroup>
+        </Wrapper>
+      </Container>
+    </Modal>
+  );
+};
+
+export default ProjectDetails;

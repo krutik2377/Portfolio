@@ -1,79 +1,45 @@
-import React, { useState } from 'react'
-import styled, { keyframes } from 'styled-components'
-import { skills } from '../../data/constants'
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { skills } from '../../data/constants';
+import SectionHeader from '../shared/SectionHeader';
+import { sectionDescriptions } from '../../styles/tokens';
 
 const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
   align-items: center;
-  padding: 40px 20px 80px;
-`
+  padding: 80px 20px;
+`;
 
 const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 1200px;
-  gap: 32px;
-`
-
-export const Title = styled.div`
-  font-size: 42px;
-  text-align: center;
-  font-weight: 600;
-  margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 32px;
-  }
-`
-
-export const Desc = styled.div`
-  font-size: 18px;
-  text-align: center;
-  max-width: 640px;
-  color: ${({ theme }) => theme.text_secondary};
-  @media (max-width: 768px) {
-    font-size: 16px;
-  }
-`
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+`;
 
 const SkillsLayout = styled.div`
-  width: 100%;
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 28px;
-  margin-top: 8px;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
-`
+`;
 
 const CategoryNav = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   position: sticky;
-  top: 100px;
+  top: 96px;
   align-self: start;
 
   @media (max-width: 900px) {
@@ -81,180 +47,161 @@ const CategoryNav = styled.div`
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 8px;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
-`
+`;
 
 const CategoryButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 14px 18px;
-  border-radius: 14px;
-  border: 1px solid ${({ $active }) => ($active ? '#90EE90' : 'transparent')};
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid ${({ $active }) => ($active ? 'rgba(144,238,144,0.5)' : 'transparent')};
   background: ${({ $active, theme }) =>
-    $active
-      ? 'linear-gradient(135deg, rgba(144, 238, 144, 0.14) 0%, rgba(50, 205, 50, 0.06) 100%)'
-      : theme.card};
-  color: ${({ $active, theme }) => ($active ? '#90EE90' : theme.text_primary)};
-  font-size: 14px;
+    $active ? 'rgba(144, 238, 144, 0.12)' : theme.card};
+  color: ${({ $active, theme }) => ($active ? theme.accent : theme.text_primary)};
+  font-size: 13px;
   font-weight: ${({ $active }) => ($active ? 600 : 500)};
-  text-align: left;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: ${({ $active }) =>
-    $active ? '0 0 20px rgba(144, 238, 144, 0.12)' : 'none'};
+  text-align: left;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 
   &:hover {
-    border-color: rgba(144, 238, 144, 0.5);
-    transform: translateX(4px);
+    border-color: rgba(144, 238, 144, 0.4);
   }
+`;
 
-  @media (max-width: 900px) {
-    width: auto;
-    min-width: max-content;
-    white-space: nowrap;
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
-`
-
-const CategoryCount = styled.span`
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
+const Count = styled.span`
+  font-size: 11px;
+  padding: 2px 8px;
   border-radius: 999px;
-  background: ${({ $active }) =>
-    $active ? 'rgba(144, 238, 144, 0.2)' : 'rgba(255, 255, 255, 0.06)'};
-  color: ${({ $active, theme }) => ($active ? '#90EE90' : theme.text_secondary)};
-`
+  background: rgba(144, 238, 144, 0.15);
+  color: ${({ theme }) => theme.accent};
+`;
 
 const SkillPanel = styled.div`
   background: ${({ theme }) => theme.card};
-  border: 1px solid rgba(144, 238, 144, 0.25);
+  border: 1px solid rgba(144, 238, 144, 0.2);
   border-radius: 20px;
-  padding: 32px;
-  min-height: 320px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: rgba(23, 92, 230, 0.12) 0px 8px 32px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #90EE90, #32CD32, transparent);
-  }
+  padding: 28px;
+  min-height: 300px;
+  animation: ${fadeIn} 0.4s ease;
 
   @media (max-width: 768px) {
-    padding: 24px 18px;
-    min-height: 280px;
+    padding: 20px 16px;
   }
-`
+`;
 
-const PanelHeader = styled.div`
-  margin-bottom: 28px;
-  animation: ${fadeIn} 0.4s ease;
-`
-
-const PanelTitle = styled.h2`
-  font-size: 28px;
+const PanelTitle = styled.h3`
+  font-size: 24px;
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 22px;
-  }
-`
-
-const PanelSubtitle = styled.p`
-  font-size: 15px;
+const PanelDesc = styled.p`
+  font-size: 14px;
   color: ${({ theme }) => theme.text_secondary};
-  margin: 0;
+  margin: 0 0 24px;
   line-height: 1.5;
-`
+`;
 
 const SkillGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 14px;
-  animation: ${fadeIn} 0.45s ease 0.05s both;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+`;
 
-  @media (max-width: 500px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
+const AllGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+`;
+
+const CategoryBlock = styled.div`
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+
+  h4 {
+    font-size: 14px;
+    color: ${({ theme }) => theme.accent};
+    margin: 0 0 12px;
   }
-`
+`;
 
 const SkillChip = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
-  border-radius: 14px;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13px;
   color: ${({ theme }) => theme.text_primary};
-  font-size: 14px;
-  font-weight: 500;
-  cursor: default;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(144, 238, 144, 0.6);
-    background: rgba(144, 238, 144, 0.08);
-    box-shadow: 0 10px 28px rgba(144, 238, 144, 0.12);
+    border-color: rgba(144, 238, 144, 0.4);
+    transform: translateY(-2px);
   }
 
-  @media (max-width: 500px) {
-    padding: 12px 14px;
-    font-size: 13px;
+  img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
   }
-`
+`;
 
-const SkillImage = styled.img`
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-  flex-shrink: 0;
-  border-radius: 6px;
-`
+const MiniChips = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+const MiniChip = styled.span`
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: ${({ theme }) => theme.text_secondary};
+`;
 
 const categoryDescriptions = {
   'Programming Languages': 'Core languages used across AI platforms, backend services, and full-stack applications.',
   'AI & Agentic Systems': 'Designing and deploying intelligent systems, copilots, and automated decision pipelines.',
   'AI Frameworks & Libraries': 'Frameworks and tooling for building production-grade AI and agentic workflows.',
   'Backend & Frameworks': 'Scalable server-side architecture, APIs, and modern web application frameworks.',
-  'Databases': 'Data storage and caching layers for high-performance, cloud-native applications.',
+  Databases: 'Data storage and caching layers for high-performance, cloud-native applications.',
   'Cloud & DevOps': 'Containerization, orchestration, and CI/CD pipelines for reliable deployments.',
-  'Tools': 'Day-to-day development, collaboration, and workflow tooling.',
-}
+  Tools: 'Day-to-day development, collaboration, and workflow tooling.',
+  'All Skills': 'Complete overview of technologies and capabilities across all domains.',
+};
 
 const Skills = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const activeCategory = skills[activeIndex]
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const isAllView = activeIndex === -1;
+  const activeCategory = isAllView ? null : skills[activeIndex];
 
   return (
     <Container id="skills">
       <Wrapper>
-        <Title>Skills</Title>
-        <Desc>
-          A focused toolkit spanning AI engineering, full-stack development, and cloud-native delivery.
-        </Desc>
+        <SectionHeader
+          title="Technical"
+          highlight="Skills"
+          description={sectionDescriptions.skills}
+        />
 
         <SkillsLayout>
           <CategoryNav>
+            <CategoryButton $active={isAllView} onClick={() => setActiveIndex(-1)} type="button">
+              All Skills
+              <Count>{skills.reduce((n, c) => n + c.skills.length, 0)}</Count>
+            </CategoryButton>
             {skills.map((category, index) => (
               <CategoryButton
                 key={category.title}
@@ -263,34 +210,45 @@ const Skills = () => {
                 type="button"
               >
                 {category.title}
-                <CategoryCount $active={activeIndex === index}>
-                  {category.skills.length}
-                </CategoryCount>
+                <Count>{category.skills.length}</Count>
               </CategoryButton>
             ))}
           </CategoryNav>
 
-          <SkillPanel key={activeCategory.title}>
-            <PanelHeader>
-              <PanelTitle>{activeCategory.title}</PanelTitle>
-              <PanelSubtitle>
-                {categoryDescriptions[activeCategory.title]}
-              </PanelSubtitle>
-            </PanelHeader>
+          <SkillPanel key={isAllView ? 'all' : activeCategory.title}>
+            <PanelTitle>{isAllView ? 'All Skills' : activeCategory.title}</PanelTitle>
+            <PanelDesc>
+              {categoryDescriptions[isAllView ? 'All Skills' : activeCategory.title]}
+            </PanelDesc>
 
-            <SkillGrid>
-              {activeCategory.skills.map((item) => (
-                <SkillChip key={item.name}>
-                  <SkillImage src={item.image} alt={item.name} />
-                  {item.name}
-                </SkillChip>
-              ))}
-            </SkillGrid>
+            {isAllView ? (
+              <AllGrid>
+                {skills.map((category) => (
+                  <CategoryBlock key={category.title}>
+                    <h4>{category.title}</h4>
+                    <MiniChips>
+                      {category.skills.map((item) => (
+                        <MiniChip key={item.name}>{item.name}</MiniChip>
+                      ))}
+                    </MiniChips>
+                  </CategoryBlock>
+                ))}
+              </AllGrid>
+            ) : (
+              <SkillGrid>
+                {activeCategory.skills.map((item) => (
+                  <SkillChip key={item.name}>
+                    <img src={item.image} alt="" />
+                    {item.name}
+                  </SkillChip>
+                ))}
+              </SkillGrid>
+            )}
           </SkillPanel>
         </SkillsLayout>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

@@ -1,58 +1,111 @@
-// Finally Base Website Done.
-
 import { ThemeProvider } from "styled-components";
 import { useState, useEffect } from "react";
-import { darkTheme, lightTheme } from './utils/Themes.js'
+import { darkTheme, lightTheme } from './utils/Themes.js';
 import Navbar from "./components/Navbar";
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HeroSection from "./components/HeroSection";
-import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import Publications from "./components/Publications";
 import ProjectDetails from "./components/ProjectDetails";
+import TechMarquee from "./components/shared/TechMarquee";
+import ErrorBoundary from "./components/shared/ErrorBoundary";
+import AIPlayground from "./components/AIPlayground";
+import GitHubActivity from "./components/GitHubActivity";
+import CaseStudyPage from "./components/CaseStudy";
 import styled from "styled-components";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
   overflow-x: hidden;
-`
+  color: ${({ theme }) => theme.text_primary};
+`;
 
-const Wrapper = styled.div`
-  background: linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%), linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%);
+const SectionWrap = styled.div`
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%,30% 98%, 0 100%);
-`
+  background: transparent;
+`;
+
+function HomePage({ darkMode, setDarkMode, openModal, setOpenModal }) {
+  return (
+    <Body>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <HeroSection />
+      <SectionWrap>
+        <Publications />
+      </SectionWrap>
+      <TechMarquee />
+      <SectionWrap>
+        <AIPlayground />
+      </SectionWrap>
+      <SectionWrap>
+        <Experience />
+      </SectionWrap>
+      <Projects openModal={openModal} setOpenModal={setOpenModal} />
+      <SectionWrap>
+        <GitHubActivity />
+      </SectionWrap>
+      <SectionWrap>
+        <Skills />
+      </SectionWrap>
+      <Education />
+      <SectionWrap>
+        <Contact />
+      </SectionWrap>
+      <Footer />
+      {openModal.state && (
+        <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+      )}
+    </Body>
+  );
+}
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [openModal, setOpenModal] = useState({ state: false, project: null });
-  console.log(openModal)
+  const theme = darkMode ? darkTheme : lightTheme;
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.bg;
+    document.documentElement.style.backgroundColor = theme.bg;
+  }, [theme.bg]);
+
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router >
-        <Navbar />
-        <Body>
-          <HeroSection />
-          <Wrapper>
-            <Skills />
-            <Experience />
-          </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          <Wrapper>
-            <Education />
-            <Contact />
-          </Wrapper>
-          <Footer />
-          {openModal.state &&
-            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
-          }
-        </Body>
-      </Router>
+    <ThemeProvider theme={theme}>
+      <ErrorBoundary>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                  openModal={openModal}
+                  setOpenModal={setOpenModal}
+                />
+              }
+            />
+            <Route
+              path="/case-study/:slug"
+              element={
+                <Body>
+                  <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+                  <CaseStudyPage />
+                  <Footer />
+                </Body>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Router>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }

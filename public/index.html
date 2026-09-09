@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="https://as2.ftcdn.net/v2/jpg/03/36/65/01/1000_F_336650123_zed9Nd2Jh67S0cIc8QGHS0PJfMTqiIvY.jpg" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#1C1C27" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Krutik Gevariya — Lead Software Developer & AI Engineer building production-grade AI platforms, multi-agent systems, and enterprise analytics products."
     />
-    <link rel="apple-touch-icon" href="https://as2.ftcdn.net/v2/jpg/03/36/65/01/1000_F_336650123_zed9Nd2Jh67S0cIc8QGHS0PJfMTqiIvY.jpg" />
+    <meta property="og:title" content="Krutik Gevariya | Lead AI Engineer" />
+    <meta property="og:description" content="Lead Software Developer & AI Engineer specializing in CrewAI, GPT, and cloud-native AI platforms." />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,10 +26,20 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Krutik's Portfolio</title>
+    <title>Krutik Gevariya | Lead Software Developer & AI Engineer</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

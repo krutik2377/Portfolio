@@ -17,10 +17,11 @@ import brainyBeamLogo from "../images/BrainyBeam.png"
 
 export const Bio = {
     name: "Krutik Gevariya",
+    tagline: "Lead Software Developer | AI Engineer",
     roles: [
-      "Lead Developer",
-      "AI Engineer",
       "Lead Software Developer",
+      "AI Engineer",
+      "Lead Developer",
     ],
     description:
       "Lead Software Developer and AI Engineer with experience building production-grade AI platforms, multi-agent systems, document intelligence solutions, and enterprise analytics products. Proven track record designing and deploying GPT-powered applications, AI copilots, and automated decision-support systems using CrewAI, OpenAI models, Python, Redis, PostgreSQL, and cloud-native architectures. Experienced in leading technical strategy, system design, and AI adoption across enterprise environments.",
@@ -28,7 +29,159 @@ export const Bio = {
     resume:
       "https://drive.google.com/file/d/1l6Dt-qlny4X6KCHGQotAf7zPLzaE12Dd/view?usp=drive_link",
     linkedin: "https://www.linkedin.com/in/kg2377",
+    email: "krutikgevariya7723@gmail.com",
+    phone: "(438) 304-1034",
   };
+
+  /** Repo name patterns hidden from the portfolio UI (stats still count). */
+  export const githubHiddenRepoPatterns = [
+    /^fs-re-ak\//i,
+    /j360x/i,
+    /dfsa/i,
+  ];
+
+  export const heroStats = [
+    { value: "3+", label: "Years Experience" },
+    { value: "100+", label: "Business Users" },
+    { value: "80%+", label: "Automation Gain" },
+    { value: "30%", label: "Dev Efficiency ↑" },
+  ];
+
+  export const techMarquee = [
+    { name: "Python", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
+    { name: "CrewAI", image: "https://avatars.githubusercontent.com/u/170677839?s=200&v=4" },
+    { name: "React", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+    { name: "TypeScript", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
+    { name: "OpenAI", image: "https://cdn.simpleicons.org/openai/90EE90" },
+    { name: "Redis", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" },
+    { name: "PostgreSQL", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" },
+    { name: "Docker", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" },
+    { name: "LangChain", image: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
+    { name: "Spring Boot", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" },
+  ];
+
+  export const navSections = [
+    { id: "about", label: "About" },
+    { id: "publications", label: "Publications" },
+    { id: "playground", label: "AI Demo" },
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
+    { id: "github", label: "GitHub" },
+    { id: "skills", label: "Skills" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  export const agentWorkflowSteps = [
+    {
+      id: 0,
+      icon: "💬",
+      name: "User Query",
+      vocPipeline: true,
+      description:
+        "Customer feedback enters the platform through web UI, API, or batch ingestion. In this demo, the text you paste in the VoC Classifier is the input that starts the pipeline.",
+      tech: ["REST API", "WebSockets", "VoC Ingestion"],
+    },
+    {
+      id: 1,
+      icon: "🔀",
+      name: "Router Agent",
+      vocPipeline: true,
+      description:
+        "Classifies intent (VoC feedback, document query, or report request), assigns priority, and hands off to the orchestration layer with the right agent crew.",
+      tech: ["LLM", "Intent Classification", "Priority Routing"],
+    },
+    {
+      id: 2,
+      icon: "🎯",
+      name: "Orchestration",
+      vocPipeline: true,
+      description:
+        "The CrewAI orchestration layer coordinates multi-agent execution — task delegation, agent handoffs, shared state in Redis, and retry logic across the pipeline.",
+      tech: ["CrewAI", "Redis", "Task Orchestration", "Agent Handoffs"],
+    },
+    {
+      id: 3,
+      icon: "📊",
+      name: "Insight Agent",
+      vocPipeline: true,
+      vocClassifierStep: true,
+      description:
+        "Runs VoC analysis on the feedback — sentiment scoring, theme detection, and suggested actions. This is the same logic powering the VoC Classifier demo on the other tab.",
+      tech: ["NLP", "Sentiment Analysis", "Theme Detection", "VoC Analytics"],
+    },
+    {
+      id: 4,
+      icon: "📄",
+      name: "Document Agent",
+      vocPipeline: false,
+      description:
+        "Optional parallel path for document-heavy requests — ingests PDFs, extracts knowledge, and grounds responses with RAG. Skipped for pure VoC feedback flows.",
+      tech: ["Document Intelligence", "RAG", "PostgreSQL"],
+    },
+    {
+      id: 5,
+      icon: "📋",
+      name: "Report Agent",
+      vocPipeline: true,
+      description:
+        "Takes insight outputs (sentiment, themes, suggested action) and compiles executive summaries, dashboards, and automated reports for stakeholders.",
+      tech: ["GPT", "PDF Generation", "Redis Cache"],
+    },
+  ];
+
+  export const caseStudies = [
+    {
+      slug: "enterprise-ai-platform",
+      title: "Enterprise AI / VoC Platform",
+      subtitle: "Multi-agent customer experience analytics for enterprise clients",
+      role: "Lead Software Developer",
+      date: "2024 – Present",
+      tags: ["CrewAI", "AI", "Enterprise"],
+      placeholder: true,
+      github: null,
+    },
+    {
+      slug: "sentiment-song-recommendation",
+      title: "Sentiment Based Song Recommendation",
+      subtitle: "NLP-powered conversational recommendation system",
+      role: "Developer",
+      date: "Jun 2021 – Jul 2021",
+      tags: ["Python", "NLTK", "NLP"],
+      placeholder: true,
+      github: "https://github.com/krutik2377/Sentiment-Based-Song-Recommendation-System",
+    },
+    {
+      slug: "social-media-platform",
+      title: "Real-Time Social Media Platform",
+      subtitle: "Scalable full-stack platform with WebSockets and Kubernetes",
+      role: "Developer",
+      date: "Jan 2023 – Apr 2023",
+      tags: ["Java", "Spring Boot", "Azure"],
+      placeholder: true,
+      github: "https://github.com/krutik2377",
+    },
+  ];
+
+  export const publications = [
+    {
+      id: 0,
+      title: "Architecting Large-scale System Design: Harnessing CQRS and Materialized Views for High Performance",
+      date: "2024",
+      platform: "Medium",
+      url: "https://medium.com/@gevariyakrutik2377/architecting-large-scale-system-design-harnessing-cqrs-and-materialized-views-for-high-performance-1d5992d5e7f2",
+      desc: "Explores CQRS and materialized views for building highly scalable, read-optimized system architectures with independent write and query scaling.",
+    },
+    {
+      id: 1,
+      title: "Agentic Programming: A Head Start to Building the Future of Intelligent Systems",
+      date: "2025",
+      isLatest: true,
+      platform: "Medium",
+      url: "https://shorturl.at/4w1bP",
+      desc: "An introduction to agentic programming — how intelligent systems can plan, adapt, and act autonomously beyond traditional instruction-following software.",
+    },
+  ];
   
   export const skills = [
     {
@@ -275,6 +428,7 @@ export const Bio = {
       role: "Lead Software Developer",
       company: "DFSA Inc. / J360x — Montreal, Canada (Remote)",
       date: "Feb 2026 – Present",
+      badges: ["Leadership", "AI", "Enterprise"],
       desc: "• Led architecture and delivery of an AI-powered CX analytics platform for enterprise clients, improving development efficiency by 30% and reducing production defects by 25%. • Designed and deployed a CrewAI-based multi-agent platform that automated customer insights, recommendations, and document generation, reducing manual analysis effort by 80%+. • Built a multilingual AI copilot with enterprise knowledge grounding and document intelligence, supporting 100+ business users across client organizations. • Developed a document intelligence platform that transformed enterprise PDFs into queryable knowledge, significantly accelerating information retrieval. • Implemented Redis-based AI pipelines for customer feedback analysis, document ingestion, and automated insight generation at scale.",
       skills: [
         "CrewAI",
@@ -292,6 +446,7 @@ export const Bio = {
       role: "Software Developer",
       company: "DFSA Inc. — Montreal, Canada (Remote)",
       date: "Aug 2024 - Jan 2026",
+      badges: ["AI", "GPT", "VoC"],
       desc: "• Engineered an AI-powered VoC platform that consolidated multi-channel customer feedback into real-time insights and recommendations. • Built AI-driven classification pipelines that categorized customer feedback, identified emerging themes, and surfaced actionable insights. • Implemented GPT-powered analytics workflows that contributed to a 20% increase in customer satisfaction ratings and improved Net Promoter Scores by more than 15 points within six months. • Developed no-code operational tooling that enabled non-technical teams to manage AI routing and business rules independently.",
       skills: [
         "GPT",
@@ -308,6 +463,7 @@ export const Bio = {
       role: "Software Developer",
       company: "OxAgile Inc. — Ontario, Canada (Remote)",
       date: "May 2023 - Apr 2024",
+      badges: ["Full-Stack", "React", "Spring Boot"],
       desc: "• Architected scalable web applications with React, TypeScript, and Spring Boot, integrating RESTful and SOAP APIs for seamless system functionality and reducing API response times by 20%. • Led full-cycle software development, exploring emerging technologies to enhance innovation and system efficiency.",
       skills: [
         "React",
@@ -323,6 +479,7 @@ export const Bio = {
       role: "Software Developer Intern",
       company: "OxAgile Inc. — Ontario, Canada (Remote)",
       date: "Jan 2023 - Apr 2023",
+      badges: ["Full-Stack", "UI/UX"],
       desc: "• Redesigned interactive user interfaces, reducing bounce rates by 15% and improving engagement. • Engineered backend systems with optimized API communication, increasing system reliability and enhancing cloud performance.",
       skills: [
         "React",
@@ -337,6 +494,7 @@ export const Bio = {
       role: "Data Science Intern",
       company: "Brainy Beam Technologies Pvt. Ltd — Ahmedabad, India",
       date: "May 2021 – Jun 2021",
+      badges: ["ML", "Data Pipelines"],
       desc: "• Streamlined data collection and preprocessing pipelines, boosting execution speed by 50% for large-scale sentiment analysis on 10,000+ reviews. • Enhanced data pipelines, scaling a product to 12K+ new customers, contributing to a 15% sales increase and 20% rise in customer retention.",
       skills: [
         "Python",
@@ -353,7 +511,33 @@ export const Bio = {
 
   export const projects = [
     {
+      id: 12,
+      featured: true,
+      title: "Social Media Platform",
+      date: "Jan 2023 – Apr 2023",
+      description:
+        "Developed a real-time social media platform using Java, Spring Boot, and RESTful APIs with PostgreSQL, integrating WebSockets for messaging and reducing data retrieval latency by 35% in an Agile environment. Deployed on Azure with Kubernetes for scalability, using JUnit test cases to ensure robust API performance and adherence to best practices for code quality.",
+      image: blogApp,
+      tags: ["Java", "Spring Boot", "PostgreSQL", "WebSockets", "Azure", "Kubernetes"],
+      category: "full-stack",
+      caseStudySlug: "social-media-platform",
+      github: "https://github.com/krutik2377",
+    },
+    {
+      id: 13,
+      featured: true,
+      title: "Recipe App",
+      date: "Sep 2023 – Dec 2023",
+      description:
+        "Built a recipe-sharing platform using Java, Spring Boot, and a microservices architecture, developing RESTful APIs with Azure cloud storage to reduce retrieval time by 25% and improve performance by 20%. Utilized Docker and Kubernetes for reliable, scalable deployments in an Agile process, ensuring high-quality deliverables through JUnit testing and operational optimization.",
+      image: Eweb,
+      tags: ["Java", "Spring Boot", "Microservices", "Docker", "Kubernetes", "Azure"],
+      category: "full-stack",
+      github: "https://github.com/krutik2377",
+    },
+    {
       id: 9,
+      featured: true,
       title: "Movie Ticket Booking System",
       date: "Feb 2023 - Apr 2023",
       description:
@@ -445,6 +629,7 @@ export const Bio = {
     },
     {
       id: 3,
+      archive: true,
       title: "A Pig Game",
       date: "Aug 2023 - Sep 2023",
       description:
@@ -471,6 +656,7 @@ export const Bio = {
     },
     {
       id: 4,
+      archive: true,
       title: "Guess My Number Game",
       date: "Sep 2023",
       description:
@@ -484,6 +670,7 @@ export const Bio = {
     },
     {
       id: 5,
+      featured: true,
       title: "Sentiment Based Song Recommendation System",
       date: "Jun 2021 - Jul 2021",
       description:
@@ -492,11 +679,13 @@ export const Bio = {
        aiGame,
       tags: ["Python", "NLTK","File System"],
       category: "Artificial Intelligence",
+      caseStudySlug: "sentiment-song-recommendation",
       github: "https://github.com/krutik2377/Sentiment-Based-Song-Recommendation-System",
       // webapp: "https://rishav-react-todo.netlify.app/",
     },
     {
       id: 6,
+      archive: true,
       title: "To-Do-List",
       date: "Jan 2021",
       description:
@@ -544,6 +733,7 @@ export const Bio = {
     },
     {
       id: 11,
+      featured: true,
       title: "Advancing Fairness in Facial Image Analysis",
       date: "Sep 2023 - Dec 2023",
       description:
@@ -576,19 +766,21 @@ export const Bio = {
       id: 0,
       school: "Concordia University, Montreal, Canada",
       img : "https://logowik.com/content/uploads/images/concordia-university6864.jpg",
-      date: "Sep 2022 - May 2024",
-      grade: "3.2* GPA",
-      desc: "I am currently pursuing a Master's degree in Applied Computer Science at Concordia University. I have completed 3 semesters and have a GPA of 3.2. I have taken courses in Algotithm Design Techniques , Advanced Programming Practices , Problem and program Solving , Distributed system Design , Software maintenance , Advanced Database system , Artificial intelligence , Computer networks , Software design methodology, and many more coming. I am also a member of the Google Developers Student Club (GDSC) at Concordia University, where I am learning and working on exciting projects with a team of talented developers.",
-      degree: "Masters of Applied Computer Science - MTech,Applied Computer Science",
+      date: "Sep 2022 - Apr 2024",
+      grade: "3.2 GPA",
+      desc: "Master's in Applied Computer Science with coursework in algorithm design, distributed systems, advanced databases, artificial intelligence, and software design methodology. Active member of Google Developers Student Club (GDSC) at Concordia.",
+      degree: "Master's in Applied Computer Science",
+      highlights: ["AI", "Distributed Systems", "Advanced Databases", "GDSC Member"],
     },
     {
       id: 1,
       img: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Gujarat_Technological_University_%28GTU%29_logo.jpg",
-      school: "Gujarat Technological University, Gujarat, India",
+      school: "A.D. Patel Institute of Technology, Gujarat, India",
       date: "Jul 2018 - Jun 2022",
       grade: "9.04 CGPA",
-      desc: "I completed my bachelors of Engineering with good knowledge in different feilds of computer science and made my base very strong to pursue the more knowledge.",
-      degree: "Bachelors of Computer Engineering",
+      desc: "Bachelor's in Computer Engineering with a strong foundation in software engineering, data structures, algorithms, and core computer science disciplines.",
+      degree: "Bachelor's in Computer Engineering",
+      highlights: ["9.04 CGPA", "Computer Engineering", "GTU Affiliated"],
     },
   ]; 
   
