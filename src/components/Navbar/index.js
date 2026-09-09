@@ -1,61 +1,120 @@
-import React from 'react'
-import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink } from './NavbarStyledComponent'
-import { DiCssdeck } from 'react-icons/di';
-import { FaBars } from 'react-icons/fa';
-import { Bio } from '../../data/constants';
-// import { Close, CloseRounded } from '@mui/icons-material';
-import { useTheme } from 'styled-components';
+import React from 'react';
+import {
+  Nav,
+  NavIsland,
+  NavLink,
+  NavLogo,
+  NavPill,
+  GitHubButton,
+  ButtonContainer,
+  MobileIcon,
+  MobileMenu,
+  MobileLink,
+  MobileActions,
+  ThemeToggle,
+  LogoMark,
+  BrandText,
+  Span,
+  RoleHint,
+} from './NavbarStyledComponent';
+import { FaBars, FaGithub } from 'react-icons/fa';
+import { Bio, navSections } from '../../data/constants';
+import { useScrollSpy } from '../../hooks/useScrollSpy';
+import { DarkMode, LightMode } from '@mui/icons-material';
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const theme = useTheme()
+  const [scrolled, setScrolled] = React.useState(false);
+  const activeSection = useScrollSpy(navSections.map((s) => s.id));
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <Nav>
-      <NavbarContainer>
-        <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer'}}>
-            <DiCssdeck size="3rem" /> <Span>KG</Span>
-          </a>
+      <NavIsland $scrolled={scrolled}>
+        <NavLogo to="/" onClick={closeMenu}>
+          <LogoMark>KG</LogoMark>
+          <BrandText>
+            <Span>Krutik</Span>
+            <RoleHint>AI Engineer</RoleHint>
+          </BrandText>
         </NavLogo>
-        <MobileIcon>
-          <FaBars onClick={() => {
-            setIsOpen(!isOpen)
-          }} />
-        </MobileIcon>
-        <NavItems>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href='#skills'>Skills</NavLink>
-          <NavLink href='#experience'>Experience</NavLink>
-          <NavLink href='#projects'>Projects</NavLink>
-          <NavLink href='#education'>Education</NavLink>
-        </NavItems>
-        <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank">Github Profile</GitHubButton>
-        </ButtonContainer>
-        {
-          isOpen &&
-          <MobileMenu isOpen={isOpen}>
-            <MobileLink href="#about" onClick={() => {
-              setIsOpen(!isOpen)
-            }}>About</MobileLink>
-            <MobileLink href='#skills' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Skills</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Experience</MobileLink>
-            <MobileLink href='#projects' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Projects</MobileLink>
-            <MobileLink href='#education' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Education</MobileLink>
-            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
-          </MobileMenu>
-        }
-      </NavbarContainer>
-    </Nav>
-  )
-}
 
-export default Navbar
+        <NavPill aria-label="Main navigation">
+          {navSections.map(({ id, label }) => (
+            <NavLink
+              key={id}
+              href={`#${id}`}
+              $active={activeSection === id}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </NavPill>
+
+        <ButtonContainer>
+          <ThemeToggle
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label="Toggle theme"
+            type="button"
+          >
+            {darkMode ? <LightMode fontSize="small" /> : <DarkMode fontSize="small" />}
+          </ThemeToggle>
+          <GitHubButton href={Bio.github} target="_blank" rel="noreferrer">
+            <FaGithub size={14} />
+            GitHub
+          </GitHubButton>
+        </ButtonContainer>
+
+        <MobileIcon
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          type="button"
+        >
+          <FaBars />
+        </MobileIcon>
+
+        {isOpen && (
+          <MobileMenu>
+            {navSections.map(({ id, label }) => (
+              <MobileLink
+                key={id}
+                href={`#${id}`}
+                $active={activeSection === id}
+                onClick={closeMenu}
+              >
+                {label}
+              </MobileLink>
+            ))}
+            <MobileActions>
+              <ThemeToggle
+                onClick={() => setDarkMode(!darkMode)}
+                aria-label="Toggle theme"
+                type="button"
+              >
+                {darkMode ? <LightMode fontSize="small" /> : <DarkMode fontSize="small" />}
+              </ThemeToggle>
+              <GitHubButton
+                style={{ display: 'flex', flex: 1, justifyContent: 'center' }}
+                href={Bio.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub size={14} />
+                GitHub
+              </GitHubButton>
+            </MobileActions>
+          </MobileMenu>
+        )}
+      </NavIsland>
+    </Nav>
+  );
+};
+
+export default Navbar;

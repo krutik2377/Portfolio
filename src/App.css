@@ -1,41 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-body{
-  margin: 0px !important;
+body {
+  margin: 0 !important;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #1C1C27;
 }
 
-/* width */
+#root {
+  background-color: #1C1C27;
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid #90EE90;
+  outline-offset: 3px;
+}
+
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 80px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background:#56dc7c;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #586657;
-    border-radius: 6px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #626970;
-  }
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1C1C27;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #90EE90;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #32CD32;
+}
