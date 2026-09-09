@@ -4,7 +4,7 @@ import { Bio, githubHiddenRepoPatterns } from '../data/constants';
 const isHiddenRepo = (repoFullName) =>
   githubHiddenRepoPatterns.some((pattern) => pattern.test(repoFullName || ''));
 
-const CACHE_KEY = 'github-stats-cache-v4';
+const CACHE_KEY = 'github-stats-cache-v6';
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
 const USERNAME = Bio.github.split('/').pop();
@@ -204,7 +204,6 @@ export const useGitHubStats = () => {
     stats: {},
     recentRepos: [],
     activitySummary: null,
-    includesPrivate: false,
     statsSource: 'public',
   });
 
@@ -226,13 +225,17 @@ export const useGitHubStats = () => {
     let cancelled = false;
 
     const load = async () => {
-      const cached = readCache();
-      if (cached) {
-        setState({ ...cached, loading: false });
-        return;
-      }
-
       try {
+        const authStatsFirst = await loadAuthenticatedStats();
+
+        if (!authStatsFirst) {
+          const cached = readCache();
+          if (cached) {
+            setState({ ...cached, loading: false });
+            return;
+          }
+        }
+
         const userRes = await fetch(`https://api.github.com/users/${USERNAME}`);
         if (!userRes.ok) throw new Error('Could not load GitHub profile');
         const user = await userRes.json();
@@ -240,7 +243,7 @@ export const useGitHubStats = () => {
         const accountYear = new Date(user.created_at).getFullYear();
 
         const [authStats, eventsRes, repos] = await Promise.all([
-          loadAuthenticatedStats(),
+          Promise.resolve(authStatsFirst),
           fetch(`https://api.github.com/users/${USERNAME}/events/public?per_page=100`),
           fetchAllRepos(),
         ]);
@@ -248,14 +251,12 @@ export const useGitHubStats = () => {
         let contributionsByYear;
         let yearTotals;
         let availableYears;
-        let includesPrivate = false;
         let statsSource = 'public';
 
         if (authStats) {
           contributionsByYear = authStats.contributionsByYear;
           yearTotals = authStats.yearTotals;
           availableYears = authStats.availableYears;
-          includesPrivate = authStats.includesPrivate ?? true;
           statsSource = 'authenticated';
         } else {
           const contribBundle = await fetchAllContributionYears(accountYear);
@@ -270,7 +271,10 @@ export const useGitHubStats = () => {
         const contributions = contributionsByYear[defaultYear] || [];
         const totalContributions = yearTotals[defaultYear] ?? sumContributions(contributions);
         const streaks = calcStreaks(contributions);
-        const activityBreakdown = categorizeEvents(events);
+        const activityBreakdown =
+          authStats?.activityBreakdown?.length
+            ? authStats.activityBreakdown
+            : categorizeEvents(events);
 
         const publicRepos = repos.filter(
           (repo) => !isHiddenRepo(repo.full_name || `${repo.owner?.login}/${repo.name}`)
@@ -323,7 +327,6 @@ export const useGitHubStats = () => {
           languages,
           recentRepos,
           activitySummary,
-          includesPrivate,
           statsSource,
           stats: {
             publicRepos: user.public_repos,

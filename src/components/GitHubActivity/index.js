@@ -109,22 +109,6 @@ const YearButton = styled.button`
   }
 `;
 
-const Disclaimer = styled.p`
-  margin: 0 0 20px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(144, 238, 144, 0.2);
-  background: rgba(144, 238, 144, 0.06);
-  font-size: 13px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.text_secondary};
-  text-align: center;
-
-  strong {
-    color: ${({ theme }) => theme.accent};
-  }
-`;
-
 const BreakdownChart = styled.div`
   display: flex;
   flex-direction: column;
@@ -176,9 +160,10 @@ const BreakdownLabel = styled.span`
 const BreakdownPct = styled.span`
   font-size: 12px;
   font-weight: 700;
-  min-width: 36px;
+  min-width: 72px;
   text-align: right;
   color: ${({ theme }) => theme.accent};
+  white-space: nowrap;
 `;
 
 const LanguageRow = styled.div`
@@ -354,8 +339,6 @@ const GitHubActivity = () => {
     selectedYear,
     yearTotals,
     selectYear,
-    includesPrivate,
-    statsSource,
   } = useGitHubStats();
 
   const activityLine = (() => {
@@ -388,22 +371,8 @@ const GitHubActivity = () => {
         <SectionHeader
           title="GitHub"
           highlight="Activity"
-          description="Public contribution history with year-by-year heatmaps — switch years to explore past activity."
+          description="Contribution history with year-by-year heatmaps — switch years to explore past activity."
         />
-
-        <Disclaimer>
-          {statsSource === 'authenticated' ? (
-            <>
-              <strong>Includes private contributions.</strong> Stats are fetched securely via GitHub
-              Actions using your account token. Repository names from enterprise work are not displayed.
-            </>
-          ) : (
-            <>
-              <strong>Public contributions only.</strong> Run the GitHub Actions workflow with{' '}
-              <code>GH_CONTRIBUTIONS_TOKEN</code> to include private/enterprise activity.
-            </>
-          )}
-        </Disclaimer>
 
         {loading && <Loading>Loading GitHub activity…</Loading>}
         {error && <ErrorText>{error}</ErrorText>}
@@ -451,7 +420,7 @@ const GitHubActivity = () => {
               <MainGrid>
                 <Card>
                   <CardTitle>
-                    {totalContributions} public contribution{totalContributions === 1 ? '' : 's'}
+                    {totalContributions} contribution{totalContributions === 1 ? '' : 's'}
                     {selectedYear === 'last' ? ' in the last 12 months' : ` in ${selectedYear}`}
                   </CardTitle>
 
@@ -490,19 +459,30 @@ const GitHubActivity = () => {
                 </Card>
 
                 <Card>
-                  <CardTitle>Activity Overview</CardTitle>
-                  <ActivityDiamond breakdown={activityBreakdown} />
-                  <BreakdownRow>
-                    {activityBreakdown.map((item) => (
-                      <BreakdownItem key={item.label}>
-                        <BreakdownLabel>{item.label}</BreakdownLabel>
-                        <BreakdownBar>
-                          <BreakdownFill $pct={item.pct} />
-                        </BreakdownBar>
-                        <BreakdownPct>{item.pct}%</BreakdownPct>
-                      </BreakdownItem>
-                    ))}
-                  </BreakdownRow>
+                  <CardTitle>Activity Overview (last 12 months)</CardTitle>
+                  {activityBreakdown.some((item) => item.value > 0) ? (
+                    <>
+                      <ActivityDiamond breakdown={activityBreakdown} />
+                      <BreakdownRow>
+                        {activityBreakdown.map((item) => (
+                          <BreakdownItem key={item.label}>
+                            <BreakdownLabel>{item.label}</BreakdownLabel>
+                            <BreakdownBar>
+                              <BreakdownFill $pct={item.pct} />
+                            </BreakdownBar>
+                            <BreakdownPct>
+                              {item.pct}% ({item.value})
+                            </BreakdownPct>
+                          </BreakdownItem>
+                        ))}
+                      </BreakdownRow>
+                    </>
+                  ) : (
+                    <ActivityText>
+                      Run <code>npm run fetch-github-stats</code> with a classic{' '}
+                      <code>read:user</code> token to load activity breakdown.
+                    </ActivityText>
+                  )}
                 </Card>
               </MainGrid>
             </ScrollReveal>

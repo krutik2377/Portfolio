@@ -2,24 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// Browser extensions (e.g. VPN/ad blockers) inject scripts that can throw
-// unrelated errors and trigger Create React App's red error overlay.
+// Browser extensions (VPN/ad blockers/etc.) inject scripts that throw unrelated
+// errors (e.g. M_ID) and trigger Create React App's red error overlay.
 const isExtensionNoise = (value) => {
   const text = String(value ?? '');
   return (
     text.includes('chrome-extension://') ||
     text.includes('moz-extension://') ||
-    text.includes('M_ID')
+    text.includes('safari-extension://') ||
+    text.includes('M_ID') ||
+    text.includes('eppiocemhmnlbhjplcgkofciiegomcon')
   );
 };
+
+const shouldSuppress = (event) =>
+  isExtensionNoise(event?.filename) ||
+  isExtensionNoise(event?.message) ||
+  isExtensionNoise(event?.error?.stack) ||
+  isExtensionNoise(event?.error?.message);
 
 window.addEventListener(
   'error',
   (event) => {
-    if (isExtensionNoise(event.filename) || isExtensionNoise(event.error?.stack)) {
+    if (shouldSuppress(event)) {
       event.preventDefault();
       event.stopImmediatePropagation();
+      return false;
     }
+    return undefined;
   },
   true
 );
@@ -30,6 +40,12 @@ window.addEventListener('unhandledrejection', (event) => {
     event.preventDefault();
   }
 });
+
+const originalConsoleError = console.error;
+console.error = (...args) => {
+  if (args.some((arg) => isExtensionNoise(arg))) return;
+  originalConsoleError.apply(console, args);
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
