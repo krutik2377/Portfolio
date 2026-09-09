@@ -27,7 +27,7 @@ export const Bio = {
       "Lead Software Developer and AI Engineer with experience building production-grade AI platforms, multi-agent systems, document intelligence solutions, and enterprise analytics products. Proven track record designing and deploying GPT-powered applications, AI copilots, and automated decision-support systems using CrewAI, OpenAI models, Python, Redis, PostgreSQL, and cloud-native architectures. Experienced in leading technical strategy, system design, and AI adoption across enterprise environments.",
     github: "https://github.com/krutik2377",
     resume:
-      "https://drive.google.com/file/d/1INdEgiYbw7cMFKww1TNZMmWdzfniaKrY/view?usp=sharing",
+      "https://drive.google.com/file/d/1ZJjHhj0RLys19VMPTQ6bItP9CDOnkWOz/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/kg2377",
     email: "krutikgevariya7723@gmail.com",
     phone: "(438) 304-1034",
