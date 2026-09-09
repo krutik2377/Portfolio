@@ -48,16 +48,19 @@ export const HeroInnerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1280px;
+  gap: 40px;
 
   @media (max-width: 960px) {
     flex-direction: column;
+    gap: 24px;
   }
 `;
 export const HeroLeftContainer = styled.div`
-  width: 100%;
+  flex: 0 0 auto;
   display: flex;
   order: 1;
+
   @media (max-width: 960px) {
     order: 2;
     margin-bottom: 30px;
@@ -76,13 +79,17 @@ export const HeroLeftContainer = styled.div`
 `;
 
 export const HeroRightContainer = styled.div`
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   order: 2;
-  justify-content: end;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+
   @media (max-width: 960px) {
     order: 1;
-    justify-content: center;
     align-items: center;
     margin-bottom: 80px;
   }
@@ -151,18 +158,21 @@ export const Span = styled.span`
 `;
 
 export const SubTitle = styled.div`
-  font-size: 20px;
-  line-height: 32px;
-  margin-bottom: 42px;
+  font-size: 18px;
+  line-height: 30px;
   color: ${({ theme }) => theme.text_primary + 95};
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 24px;
 
   @media (max-width: 960px) {
     text-align: center;
+    max-width: 100%;
   }
 
   @media (max-width: 640px) {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 28px;
   }
 `;
 
@@ -171,8 +181,9 @@ export const ResumeButton = styled.a`
     -moz-appearance: button;
     appearance: button;
     text-decoration: none;
-    width: 95%;
+    width: 100%;
     max-width: 300px;
+    margin-top: 12px;
     text-align: center;
     padding: 16px 0;
     color:${({ theme }) => theme.white};
